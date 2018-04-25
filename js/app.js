@@ -23,6 +23,7 @@ class Key extends React.Component {
 		if(parseInt(this.audio.current.dataset["key"]) === evt.keyCode){
 			this.audio.current.currentTime = 0;
 			this.audio.current.play();
+			console.log(this.audio.current);
 
 		}
 	}
@@ -44,7 +45,7 @@ class Key extends React.Component {
 
 // mapping keys with react <key> component
 const keyCodesArr = [65,83,68,70,71,72,74,75,76];
-const keyboardArr = keyCodesArr.map((keyCode,i) => <Key key={i} dataKey={keyCode} />);
+const keyboardArr = keyCodesArr.map((keyCode) => <Key key={keyCode.toString()} dataKey={keyCode} />);
 
 ReactDOM.render(<div className="keys">
                 	{keyboardArr}
